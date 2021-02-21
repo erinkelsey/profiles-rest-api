@@ -13,7 +13,7 @@ REST API implemented with Django, Django REST Framework, Vagrant and SQLite that
    - Change name, email and password
    - Only the logged in user can change their profile info
 
-### API Enpoints
+### API Endpoints
 
 <table>
     <thead>
@@ -32,41 +32,54 @@ REST API implemented with Django, Django REST Framework, Vagrant and SQLite that
     </tr>
     <tr>
         <td>POST</td>
-        <td>/api/profile</td>
+        <td>/api/profile/</td>
         <td>Create a new profile.</td>
         <td>Should be application/json. Fields: email, name, password</td>
     </tr>
     <tr>
         <td>GET</td>
-        <td>/api/profile/:profileId</td>
+        <td>/api/profile/:profileId/</td>
         <td>Get details for a specific profile.</td>
         <td>None</td>
     </tr>
     <tr>
         <td>PUT</td>
-        <td>/api/profile/:profileId</td>
+        <td>/api/profile/:profileId/</td>
         <td>Replace a specific profile.</td>
         <td>Should be application/json. Fields: email, name, password</td>
     </tr>
     <tr>
         <td>PATCH</td>
-        <td>/api/profile/:profileId</td>
+        <td>/api/profile/:profileId/</td>
         <td>Partial update for specific profile.</td>
         <td>Should be application/json. Fields: email, name -> all optional</td>
     </tr>
     <tr>
         <td>DELETE</td>
-        <td>/api/profile/:profileId</td>
+        <td>/api/profile/:profileId/</td>
         <td>Deletes a specific profile.</td>
         <td>None</td>
     </tr>
+    <tr>
+        <td>POST</td>
+        <td>/api/login/</td>
+        <td>Login to with email and password to get authentication token.</td>
+        <td>Should be application/json. Fields: email, password</td>
+    </tr>
 </table>
+
+##### Test With Django REST Framework browser app
 
 You can test with the built-in Django REST Framework browser app, just go to:
 
     http://127.0.0.1:8088/api/profile/
 
-_NOTE: to do PUT/PATCH you will need to use Raw Data of type application/json_
+##### Use with authentication token
+
+- Login and receive an authentication token: http://127.0.0.1:8088/api/login/
+- Use ModHeaders Chrome extension to add authentication header to all requests
+- Make sure request headers is checked
+- Set the 'Authorization' header to be 'Token [your_token]'
 
 ## Setup
 
