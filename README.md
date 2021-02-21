@@ -12,6 +12,16 @@ REST API implemented with Django, Django REST Framework, Vagrant and SQLite that
 4. Update profile of logged in user
    - Change name, email and password
    - Only the logged in user can change their profile info
+5. Creating new feed items
+   - Only when user is logged in
+6. Updating feed items
+   - Only when user is logged in
+   - Only the user's feed items
+7. Deleting feed items
+   - Only when user is logged in
+   - Only the user's feed items
+8. Viewing other profile status updates
+   - All user
 
 ### API Endpoints
 
@@ -65,6 +75,42 @@ REST API implemented with Django, Django REST Framework, Vagrant and SQLite that
         <td>/api/login/</td>
         <td>Login to with email and password to get authentication token.</td>
         <td>Should be application/json. Fields: email, password</td>
+    </tr>
+    <tr>
+        <td>GET</td>
+        <td>/api/feed/</td>
+        <td>List all feed items.</td>
+        <td>None</td>
+    </tr>
+    <tr>
+        <td>POST</td>
+        <td>/api/feed/</td>
+        <td>Create a new feed item for logged in user.</td>
+        <td>Should be application/json. Fields: </td>
+    </tr>
+    <tr>
+        <td>GET</td>
+        <td>/api/feed/:feedItemId/</td>
+        <td>Get a specific feed item's details.</td>
+        <td>None</td>
+    </tr>
+    <tr>
+        <td>PUT</td>
+        <td>/api/feed/:feedItemId/</td>
+        <td>Replace a specific feed item. Only allowed for user that created the item.</td>
+        <td>Should be application/json. Fields: </td>
+    </tr>
+    <tr>
+        <td>PATCH</td>
+        <td>/api/feed/:feedItemId/</td>
+        <td>Partial update for specific feed item. Only allowed for user that created the item.</td>
+        <td>Should be application/json. Fields:  -> all optional</td>
+    </tr>
+    <tr>
+        <td>DELETE</td>
+        <td>/api/feed/:feedItemId/</td>
+        <td>Deletes a specific feed item. Only allowed for user that created the item.</td>
+        <td>None</td>
     </tr>
 </table>
 
