@@ -189,43 +189,49 @@ Navigate to in web browser:
 
 Instructions on how to deploy to EC2:
 
-1. Log in to AWS and navigate to EC2
-2. Create a new key pair and save to local machine
-3. Create a EC2 server instance:
-   - Go to EC2 Dashboard
-   - Click on Launch instance button
-   - Choose Ubuntu Server 20.04 LTS (HVM), SSD Volume Type as AMI
-   - Choose t2.micro as Type
-   - Go to Configure Security Group Tab
-   - Click on the Add Rule button
-   - Select HTTP as the Type and don't change anything else
-   - Choose the key pair that was created in the above step
-4. In the deploy/setup.sh file, change the PROJECT_GIT_URL to the URL for your project
-5. Run the following command in the root folder to make the deploy scripts executable:
+1.  Log in to AWS and navigate to EC2
+2.  Create a new key pair and save to local machine
+3.  Create a EC2 server instance:
+    - Go to EC2 Dashboard
+    - Click on Launch instance button
+    - Choose Ubuntu Server 20.04 LTS (HVM), SSD Volume Type as AMI
+    - Choose t2.micro as Type
+    - Go to Configure Security Group Tab
+    - Click on the Add Rule button
+    - Select HTTP as the Type and don't change anything else
+    - Choose the key pair that was created in the above step
+4.  In the deploy/setup.sh file, change the PROJECT_GIT_URL to the URL for your project
+5.  Run the following command in the root folder to make the deploy scripts executable:
 
-   $ chmod +x deploy/\*.sh
+        $ chmod +x deploy/\*.sh
 
-6. Connect to new EC2 instance:
+6.  Connect to new EC2 instance:
 
-   - Select the new instance
-   - Click on the Connect button
-   - Copy the SSH command
-   - Run command in the same folder as your SSH key
-   - Example:
+    - Select the new instance
+    - Click on the Connect button
+    - Copy the SSH command
+    - Run command in the same folder as your SSH key
+    - Example:
 
-     $ ssh -i "your-key-name.pem" ubuntu@ec2-35-183-111-35.ca-central-1.compute.amazonaws.com
+          $ ssh -i "your-key-name.pem" ubuntu@ec2-35-183-111-35.ca-central-1.compute.amazonaws.com
 
-   - If you get a permissions error with the key, try running:
+    - If you get a permissions error with the key, try running:
 
-     $ chmod 400 your-key-name.pem
+          $ chmod 400 your-key-name.pem
 
-7. Get the URL for the raw deploy/setup.sh file
-   - Click on the file and then select Raw button and copy URL
-8. Run the following command on the EC2 instance:
+7.  Get the URL for the raw deploy/setup.sh file
+    - Click on the file and then select Raw button and copy URL
+8.  Run the following command on the EC2 instance:
 
-   $ curl -sL [your-raw-deploy-setup-script-url] | sudo bash -
+          $ curl -sL [your-raw-deploy-setup-script-url] | sudo bash -
 
-9. Update the ALLOWED_HOSTS in profiles/settings.py with your EC2 instance location
+9.  Update the ALLOWED_HOSTS in profiles/settings.py with your EC2 instance location
+10. Run the update script on the server:
+
+    - Navigate to /usr/local/apps/profiles-rest-api/
+    - Run the following command:
+
+          $ sudo sh ./deploy/update.sh
 
 ## Notes
 
