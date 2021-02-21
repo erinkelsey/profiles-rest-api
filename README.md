@@ -1,6 +1,12 @@
 # Profiles REST API
 
-REST API implemented with Django, Django REST Framework, Vagrant and SQLite.
+REST API implemented with Django, Django REST Framework, Vagrant and SQLite that supports the following:
+
+- Creating new profiles
+- Logging in with a profile
+- Adding profile status updates
+- Viewing user profile fields
+- Search for user profiles
 
 ## Setup
 
@@ -18,9 +24,9 @@ Go to project folder on Vagrant:
 
     $ cd /vagrant
 
-### Django
+### Virtual Environment
 
-NOTE: You will need the Vagrant server running
+_NOTE: You will need the Vagrant server running_
 
 Create virtual environment:
 
@@ -29,6 +35,10 @@ Create virtual environment:
 Activate virtual environment:
 
     $ source ~/env/bin/activate
+
+### Django
+
+_NOTE: You will need the Vagrant server running and virtual environment activated_
 
 Install requirements from requirements.txt:
 
@@ -42,11 +52,11 @@ Create Django superuser:
 
     $ python manage.py createsuperuser
 
-NOTE: you will need to add an email, name and password
+_NOTE: you will need to add an email, name and password_
 
 ## Run
 
-NOTE: You will need the Vagrant server running
+_NOTE: You will need the Vagrant server running and virtual environment activated_
 
 Run Django server:
 
@@ -55,10 +65,6 @@ Run Django server:
 Navigate to in web browser:
 
     http://127.0.0.1:8088
-
-## Test
-
-## Build
 
 ## Deploy
 
@@ -86,13 +92,23 @@ Project folder on Vagrant:
 
     $ cd /vagrant
 
-NOTE: automatically synced with local project folder.
+_NOTE: automatically synced with local project folder_
 
-Shutdown Vagrant server:
+Stop Vagrant box:
 
     $ vagrant halt
 
-### Setup Django Project
+Remove Vagrant box:
+
+    $ vagrant destroy
+
+Update Vagrant box image:
+
+    $ vagrant box update
+
+_NOTE: you must rebuild the image after updating_
+
+### Virtual Environments
 
 Create virtual environment:
 
@@ -105,6 +121,8 @@ Activate virtual environment:
 Deactivate virtual environment:
 
     $ deactivate
+
+### Django
 
 Install requirements from requirements.txt:
 
@@ -144,7 +162,7 @@ Create Django superuser:
 
     $ python manage.py createsuperuser
 
-NOTE: you will need to add an email, name and password
+_NOTE: you will need to add an email, name and password_
 
 Login to Django admin portal using superuser credentials:
 
@@ -177,4 +195,30 @@ When: To use APIViews
 - You are calling other (external) APIs/service
 - Accessing local files or data
 
-NOTE: there is a test implementation on apiview-test branch
+_NOTE: there is a test implementation on apiview-test branch_
+
+#### ViewSets
+
+What: Uses model operations for functions
+
+How:
+
+- List - Getting a list of objects (HTTP GET Method)
+- Create - Creating new objects (HTTP POST Method)
+- Retrieve - Getting a specific object (HTTP GET Method)
+- Update - Updating an object (HTTP PUT Method)
+- Partial Update - Updating part of an object (HTTP PATCH Method)
+- Destroy - Deleting an object (HTTP DELETE Method)
+
+Why:
+
+- Takes care of a lot of the typical logic for you
+- Perfect for standard database operations
+- Fastest way to make a database interface
+
+When:
+
+- A simple CRUD interface to your database
+- A quick and simple API to manage predefined objects
+- Little to no customization on the logic
+- Working with standard data structures
