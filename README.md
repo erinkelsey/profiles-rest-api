@@ -1,6 +1,6 @@
 # Profiles REST API
 
-REST API implemented with Django, Django REST Framework and Vagrant.
+REST API implemented with Django, Django REST Framework, Vagrant and SQLite.
 
 ## Setup
 
@@ -21,6 +21,12 @@ NOTE: You will need the Vagrant server running
 Run Django DB migrations:
 
     $ python manage.py migrate
+
+Create Django superuser:
+
+    $ python manage.py createsuperuser
+
+NOTE: you will need to add an email, name and password
 
 ## Run
 
@@ -109,3 +115,13 @@ Create DB migrations:
 Migrate migrations:
 
     $ python manage.py migrate
+
+Create Django superuser:
+
+    $ python manage.py createsuperuser
+
+NOTE: you will need to add an email, name and password
+
+Login to Django admin portal using superuser credentials:
+
+    http://127.0.0.1:8088/admin/

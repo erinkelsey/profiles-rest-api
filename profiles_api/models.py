@@ -76,8 +76,8 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
     class Meta:
         """Meta definition for UserProfile."""
 
-        verbose_name = 'UserProfile'
-        verbose_name_plural = 'UserProfiles'
+        verbose_name = 'User Profile'
+        verbose_name_plural = 'User Profiles'
 
     def __str__(self):
         """Unicode representation of UserProfile."""
