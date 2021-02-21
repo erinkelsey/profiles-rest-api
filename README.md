@@ -177,4 +177,4 @@ When: To use APIViews
 - You are calling other (external) APIs/service
 - Accessing local files or data
 
-NOTE: there is a test implementation on ... branch
+NOTE: there is a test implementation on apiview-test branch
