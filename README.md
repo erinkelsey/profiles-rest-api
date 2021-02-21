@@ -225,6 +225,8 @@ Instructions on how to deploy to EC2:
 
    $ curl -sL [your-raw-deploy-setup-script-url] | sudo bash -
 
+9. Update the ALLOWED_HOSTS in profiles/settings.py with your EC2 instance location
+
 ## Notes
 
 ### Vagrant
