@@ -2,7 +2,47 @@
 
 REST API implemented with Django, Django REST Framework and Vagrant.
 
-## Vagrant
+## Setup
+
+### Vagrant
+
+Start the Vagrant server:
+
+    $ vagrant up
+
+Connect to Vagrant:
+
+    $ vagrant ssh
+
+### Django
+
+NOTE: You will need the Vagrant server running
+
+Run Django DB migrations:
+
+    $ python manage.py migrate
+
+## Run
+
+NOTE: You will need the Vagrant server running
+
+Run Django server:
+
+    $ python manage.py runserver 0.0.0.0:8088
+
+Navigate to in web browser:
+
+    http://127.0.0.1:8088
+
+## Test
+
+## Build
+
+## Deploy
+
+## Notes
+
+### Vagrant
 
 Initialize project with a Vagrantfile based on Ubuntu Bionic64 OS:
 
@@ -26,7 +66,7 @@ Project folder on Vagrant:
 
 NOTE: automatically synced with local project folder.
 
-## Setup Django Project
+### Setup Django Project
 
 Create virtual environment:
 
@@ -61,3 +101,11 @@ Run Django server:
 Navigate to in web browser:
 
     http://127.0.0.1:8088
+
+Create DB migrations:
+
+    $ python manage.py makemigrations
+
+Migrate migrations:
+
+    $ python manage.py migrate
