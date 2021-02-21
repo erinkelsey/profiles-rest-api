@@ -86,7 +86,7 @@ REST API implemented with Django, Django REST Framework, Vagrant and SQLite that
         <td>POST</td>
         <td>/api/feed/</td>
         <td>Create a new feed item for logged in user.</td>
-        <td>Should be application/json. Fields: </td>
+        <td>Should be application/json. Fields: status_text </td>
     </tr>
     <tr>
         <td>GET</td>
@@ -98,13 +98,13 @@ REST API implemented with Django, Django REST Framework, Vagrant and SQLite that
         <td>PUT</td>
         <td>/api/feed/:feedItemId/</td>
         <td>Replace a specific feed item. Only allowed for user that created the item.</td>
-        <td>Should be application/json. Fields: </td>
+        <td>Should be application/json. Fields: status_text </td>
     </tr>
     <tr>
         <td>PATCH</td>
         <td>/api/feed/:feedItemId/</td>
         <td>Partial update for specific feed item. Only allowed for user that created the item.</td>
-        <td>Should be application/json. Fields:  -> all optional</td>
+        <td>Should be application/json. Fields: status_text  -> optional</td>
     </tr>
     <tr>
         <td>DELETE</td>
@@ -186,6 +186,21 @@ Navigate to in web browser:
     http://127.0.0.1:8088
 
 ## Deploy
+
+Instructions on how to deploy to EC2:
+
+1. Log in to AWS and navigate to EC2
+2. Create a new key pair and save to local machine
+3. Create a EC2 server instance:
+   - Go to EC2 Dashboard
+   - Click on Launch instance button
+   - Choose Ubuntu Server 20.04 LTS (HVM), SSD Volume Type as AMI
+   - Choose t2.micro as Type
+   - Go to Configure Security Group Tab
+   - Click on the Add Rule button
+   - Select HTTP as the Type and don't change anything else
+   - Choose the key pair that was created in the above step
+4. In the deploy/setup.sh file, change the PROJECT_GIT_URL to the URL for your project
 
 ## Notes
 
