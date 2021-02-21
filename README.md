@@ -1,6 +1,6 @@
 # Profiles REST API
 
-REST API implemented with Django and Django REST Framework
+REST API implemented with Django, Django REST Framework and Vagrant.
 
 ## Vagrant
 
@@ -25,3 +25,39 @@ Project folder on Vagrant:
     $ cd /vagrant
 
 NOTE: automatically synced with local project folder.
+
+## Setup Django Project
+
+Create virtual environment:
+
+    $ python -m venv ~/env
+
+Activate virtual environment:
+
+    $ source ~/env/bin/activate
+
+Deactivate virtual environment:
+
+    $ deactivate
+
+Install requirements from requirements.txt:
+
+    $ pip install -r requirements.txt
+
+Create Django project:
+
+    $ django-admin.py startproject [project-name] .
+
+Create a Django app within the Django project:
+
+    $ python manage.py startapp [app-name]
+
+Install the Django app and the apps from requirements.txt in the project settings.py file
+
+Run Django server:
+
+    $ python manage.py runserver 0.0.0.0:8088
+
+Navigate to in web browser:
+
+    http://127.0.0.1:8088
