@@ -201,6 +201,29 @@ Instructions on how to deploy to EC2:
    - Select HTTP as the Type and don't change anything else
    - Choose the key pair that was created in the above step
 4. In the deploy/setup.sh file, change the PROJECT_GIT_URL to the URL for your project
+5. Run the following command in the root folder to make the deploy scripts executable:
+
+   $ chmod +x deploy/\*.sh
+
+6. Connect to new EC2 instance:
+
+   - Select the new instance
+   - Click on the Connect button
+   - Copy the SSH command
+   - Run command in the same folder as your SSH key
+   - Example:
+
+     $ ssh -i "your-key-name.pem" ubuntu@ec2-35-183-111-35.ca-central-1.compute.amazonaws.com
+
+   - If you get a permissions error with the key, try running:
+
+     $ chmod 400 your-key-name.pem
+
+7. Get the URL for the raw deploy/setup.sh file
+   - Click on the file and then select Raw button and copy URL
+8. Run the following command on the EC2 instance:
+
+   $ curl -sL [your-raw-deploy-setup-script-url] | sudo bash -
 
 ## Notes
 
