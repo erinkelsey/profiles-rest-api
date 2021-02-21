@@ -2,11 +2,71 @@
 
 REST API implemented with Django, Django REST Framework, Vagrant and SQLite that supports the following:
 
-- Creating new profiles
-- Logging in with a profile
-- Adding profile status updates
-- Viewing user profile fields
-- Search for user profiles
+1. Creating new profiles
+   - Handle registration of new users
+   - Validate profile data
+2. Listing existing profiles
+   - Search for profiles by email and name
+3. View specific profiles
+   - Find by profile ID
+4. Update profile of logged in user
+   - Change name, email and password
+   - Only the logged in user can change their profile info
+
+### API Enpoints
+
+<table>
+    <thead>
+        <tr>
+            <th>Method</th>
+            <th>Route</th>
+            <th>Description</th>
+            <th>Request Body</th>
+        </tr>
+    </thead>
+    <tr>
+        <td>GET</td>
+        <td>/api/profile/</td>
+        <td>List all profiles.</td>
+        <td>None</td>
+    </tr>
+    <tr>
+        <td>POST</td>
+        <td>/api/profile</td>
+        <td>Create a new profile.</td>
+        <td>Should be application/json. Fields: email, name, password</td>
+    </tr>
+    <tr>
+        <td>GET</td>
+        <td>/api/profile/:profileId</td>
+        <td>Get details for a specific profile.</td>
+        <td>None</td>
+    </tr>
+    <tr>
+        <td>PUT</td>
+        <td>/api/profile/:profileId</td>
+        <td>Replace a specific profile.</td>
+        <td>Should be application/json. Fields: email, name, password</td>
+    </tr>
+    <tr>
+        <td>PATCH</td>
+        <td>/api/profile/:profileId</td>
+        <td>Partial update for specific profile.</td>
+        <td>Should be application/json. Fields: email, name -> all optional</td>
+    </tr>
+    <tr>
+        <td>DELETE</td>
+        <td>/api/profile/:profileId</td>
+        <td>Deletes a specific profile.</td>
+        <td>None</td>
+    </tr>
+</table>
+
+You can test with the built-in Django REST Framework browser app, just go to:
+
+    http://127.0.0.1:8088/api/profile/
+
+_NOTE: to do PUT/PATCH you will need to use Raw Data of type application/json_
 
 ## Setup
 
